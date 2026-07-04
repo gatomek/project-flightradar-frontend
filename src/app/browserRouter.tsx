@@ -40,5 +40,7 @@ export const browserRouter = createBrowserRouter(
             ]
         }
     ],
-    {basename: '/project-flightradar-frontend/'}
+    {
+        basename: import.meta.env.BASE_URL.replace(/\/$/, '') || '/'
+    }
 );
