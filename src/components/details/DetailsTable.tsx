@@ -65,7 +65,7 @@ export const DetailsTable = () => {
                   },
                   {
                       param: 'GPS',
-                      value: (liveData.lat && liveData.lon) ? `${liveData.lat} | ${liveData.lon}` : undefined
+                      value: liveData.lat && liveData.lon ? `${liveData.lat} | ${liveData.lon}` : undefined
                   },
                   {
                       param: 'Category',

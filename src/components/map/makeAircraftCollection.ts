@@ -19,7 +19,7 @@ export function makeAircraftCollection(data: AircraftData | undefined, icao: str
 
     return data.ac.map((ac): Feature<Point, GeoJsonProperties> => {
         const {hex, lon, lat, alt_baro, t, desc, mag_heading, true_heading, track} = ac;
-        const heading = mag_heading ?? (true_heading ?? track);
+        const heading = mag_heading ?? true_heading ?? track;
         return {
             type: 'Feature',
             geometry: {

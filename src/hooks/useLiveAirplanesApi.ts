@@ -18,16 +18,15 @@ interface ApiProps {
 }
 
 export function useLiveAirplanesApi(apiProps: ApiProps) {
-
-    const url = apiProps.location === 'poland' ?
-        'https://api.airplanes.live/v2/point/51.5/19/250'
-        :
-        'https://113-30-190-16.cloud-xip.com:12000/logs';
+    const url =
+        apiProps.location === 'poland'
+            ? 'https://api.airplanes.live/v2/point/51.5/19/250'
+            : 'https://113-30-190-16.cloud-xip.com:12000/logs';
 
     const {data, isLoading, isFetching, isError, refetch} = useQuery({
         queryKey: ['liveAirplanesLogs'],
         queryFn: async (): Promise<AircraftData> => {
-            const res = await fetch( url);
+            const res = await fetch(url);
             if (!res.ok) {
                 throw new Error(`Failed to fetch flight data: ${res.status} ${res.statusText}`);
             }

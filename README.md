@@ -1,9 +1,11 @@
 # Flightradar
 
 ## GitHub
+
 https://github.com/gatomek/project-flightradar-frontend
 
 ## Application
+
 https://flightradar-gatomek.netlify.app
 
 ## NPM modules
@@ -57,6 +59,7 @@ https://flightradar-gatomek.netlify.app
 - https://www.typescriptlang.org/docs/handbook/utility-types.html
 
 ## Tools
+
 - https://webaim.org/resources/contrastchecker/
 
 ## Project preparation
