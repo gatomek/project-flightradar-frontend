@@ -1,4 +1,9 @@
-# NPM modules
+# Flightradar
+
+## GitHub
+https://github.com/gatomek/project-flightradar-frontend
+
+## NPM modules
 
 - @mui/material
 - @emotion/react
