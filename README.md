@@ -6,7 +6,7 @@ https://github.com/gatomek/project-flightradar-frontend
 
 ## Application
 
-https://flightradar-gatomek.netlify.app
+- https://gatomek.github.io/project-flightradar-frontend
 
 ## NPM modules
 

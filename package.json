@@ -1,5 +1,6 @@
 {
     "name": "flightradar",
+    "homepage": "https://gatomek.github.io/project-flightradar-frontend",
     "private": true,
     "version": "0.0.0",
     "type": "module",
