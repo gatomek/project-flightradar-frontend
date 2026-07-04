@@ -54,7 +54,7 @@ export function DetailsView() {
                 height: '100%',
                 justifyContent: 'space-between',
                 padding: '0px',
-                margin: '0px',
+                margin: '0px'
             }}
         >
             <Box
@@ -64,17 +64,17 @@ export function DetailsView() {
                     mt: '0rem',
                     verticalAlign: 'top',
                     maxHeight: '430px',
-                    overflow: 'auto',
+                    overflow: 'auto'
                 }}
             >
-                {icao && <DetailsTable/>}
+                {icao && <DetailsTable />}
             </Box>
             <Stack
                 sx={{
                     width: '65%',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
+                    justifyContent: 'center'
                 }}
             >
                 {image && (
