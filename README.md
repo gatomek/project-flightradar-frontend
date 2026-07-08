@@ -8,6 +8,11 @@ https://github.com/gatomek/project-flightradar-frontend
 
 - https://gatomek.github.io/project-flightradar-frontend
 
+## Katas
+
+- https://gatomek.github.io/kata-flightradar-radars
+- https://gatomek.github.io/kata-flightradar-flight
+
 ## NPM modules
 
 - @mui/material
