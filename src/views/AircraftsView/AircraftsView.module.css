@@ -16,13 +16,13 @@
 }
 
 .flighttable {
-    height: 560px;
+    height: var(--flight-table-height);
     width: 100%;
 }
 
 .detailsView {
     width: 100%;
-    height: calc(100% - 560px);
+    height: calc(100% - var(--flight-table-height));
     display: flex;
     justify-content: center;
     align-items: center;

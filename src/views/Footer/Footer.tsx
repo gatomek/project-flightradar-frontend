@@ -7,7 +7,7 @@ export function Footer() {
     return (
         <AppBar position="sticky" className={styles.root}>
             <Toolbar variant={'dense'} className={styles.center}>
-                <Typography noWrap>Gatomek ©2026</Typography>
+                <Typography noWrap>©{new Date().getFullYear()} Flightradar</Typography>
             </Toolbar>
         </AppBar>
     );

@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import {FlightTable} from '../../components/table/FlightTable.tsx';
 import {FlightMap} from '../../components/map/FlightMap.tsx';
-import {DetailsView} from '../../components/details/DetailsView.tsx';
+import {DetailsView} from '../../components/details/DetailsView/DetailsView.tsx';
 import styles from './AircraftsView.module.css';
 
 export function AircraftsView() {

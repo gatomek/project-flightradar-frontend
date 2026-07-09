@@ -1,4 +1,4 @@
-import type {CustomTileLayer} from './CustomTileLayer.ts';
+import type {CustomTileLayer} from './FlightMap.types.ts';
 
 export const stadiaMapsTileLayer: CustomTileLayer = {
     url: 'https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}.png',

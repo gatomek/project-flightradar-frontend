@@ -1,9 +1,9 @@
 import {MainContent} from '../views/MainContent/MainContent';
 import {AircraftsView} from '../views/AircraftsView/AircraftsView';
-import {SettingsView} from '../views/SettingsView';
-import {ProfileView} from '../views/ProfileView';
+import {SettingsView} from '../views/SettingsView/SettingsView';
+import {ProfileView} from '../views/ProfileView/ProfileView';
 import {createBrowserRouter, Navigate} from 'react-router-dom';
-import {FileNotFoundView} from '../views/FileNotFoundView.tsx';
+import {FileNotFoundView} from '../views/FileNotFoundView/FileNotFoundView';
 import {appConfig, PageNotFoundProcessing} from '../AppConfig.ts';
 
 export const browserRouter = createBrowserRouter(

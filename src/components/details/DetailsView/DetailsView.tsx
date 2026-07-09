@@ -1,8 +1,9 @@
-import {useAppSelector} from '../../hooks/hooks.ts';
+import {useAppSelector} from '../../../hooks/hooks.ts';
 import {Stack} from '@mui/material';
 import {useEffect, useState} from 'react';
 import Box from '@mui/material/Box';
-import DetailsTable from './DetailsTable.tsx';
+import DetailsTable from '../DetailsTable/DetailsTable.tsx';
+import styles from './DetailsView.module.css';
 
 export function DetailsView() {
     const icao: string = useAppSelector((state): string => state.aircraft.icao);
@@ -46,48 +47,10 @@ export function DetailsView() {
     }, [icao]);
 
     return (
-        <Stack
-            direction={'row'}
-            gap={'1rem'}
-            sx={{
-                width: '100%',
-                height: '100%',
-                justifyContent: 'space-between',
-                padding: '0px',
-                margin: '0px'
-            }}
-        >
-            <Box
-                sx={{
-                    width: '35%',
-                    m: 'auto',
-                    mt: '0rem',
-                    verticalAlign: 'top',
-                    maxHeight: '430px',
-                    overflow: 'auto'
-                }}
-            >
-                {icao && <DetailsTable />}
-            </Box>
-            <Stack
-                sx={{
-                    width: '65%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                }}
-            >
-                {image && (
-                    <img
-                        src={image}
-                        alt={`Aircraft with ICAO code ${icao}`}
-                        style={{
-                            objectFit: 'contain',
-                            maxWidth: '100%',
-                            height: 'auto'
-                        }}
-                    />
-                )}
+        <Stack className={styles.root} direction={'row'} gap={'1rem'}>
+            <Box className={styles.detailsTable}>{icao && <DetailsTable />}</Box>
+            <Stack className={styles.gallery}>
+                {image && <img className={styles.image} src={image} alt={`Aircraft with ICAO code ${icao}`} />}
             </Stack>
         </Stack>
     );

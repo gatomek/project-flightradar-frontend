@@ -6,6 +6,10 @@ body,
     box-sizing: border-box;
 }
 
+:root {
+    --flight-table-height: 560px;
+}
+
 /* Remove focus outline for Leaflet elements */
 .leaflet-container :focus {
     outline: none; /* Disable the black box */
