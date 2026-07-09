@@ -13,9 +13,10 @@ import {useKeycloak} from '@react-keycloak/web';
 import PersonIcon from '@mui/icons-material/Person';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import {NavLink} from 'react-router-dom';
-import {type PageConfig, PAGES} from '../constants/pages.ts';
+import {type PageConfig, PAGES} from '../../constants/pages.ts';
+import styles from './Header.module.css';
 
-export function AppToolbar() {
+export function Header() {
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
     const {keycloak} = useKeycloak();
 
@@ -27,7 +28,7 @@ export function AppToolbar() {
     };
 
     return (
-        <AppBar position="sticky" sx={{top: 0, bottom: 'auto'}} variant={'outlined'}>
+        <AppBar position="sticky" className={styles.root} variant={'outlined'}>
             <Toolbar variant={'dense'}>
                 <RadarIcon sx={{display: {xs: 'none', md: 'flex'}, mr: 1}} />
                 <Typography
@@ -75,14 +76,7 @@ export function AppToolbar() {
                     >
                         {PAGES.map((page: PageConfig) => (
                             <MenuItem key={page.label} onClick={handleCloseNavMenu}>
-                                <NavLink
-                                    to={page.path}
-                                    style={{
-                                        textDecoration: 'none',
-                                        textTransform: 'uppercase',
-                                        textAlign: 'center'
-                                    }}
-                                >
+                                <NavLink to={page.path} className={styles.xsNavLink}>
                                     {page.label}
                                 </NavLink>
                             </MenuItem>
@@ -114,12 +108,10 @@ export function AppToolbar() {
                         <NavLink
                             key={page.path}
                             to={page.path}
+                            className={styles.mdNavLink}
                             style={({isActive}) => {
                                 return {
-                                    color: 'white',
-                                    padding: 10,
-                                    textDecoration: isActive ? 'underline' : 'none',
-                                    textTransform: 'uppercase'
+                                    textDecoration: isActive ? 'underline' : 'none'
                                 };
                             }}
                         >
@@ -128,20 +120,20 @@ export function AppToolbar() {
                     ))}
                 </Box>
 
-                <Box sx={{flexGrow: 0}}>
+                <Box>
                     {keycloak.authenticated ? (
-                        <Box sx={{display: 'flex', justifyContent: 'flex-end', alignItems: 'center'}}>
+                        <Box className={styles.logout}>
                             <Typography>{keycloak.tokenParsed?.preferred_username}</Typography>
                             <Tooltip title="Logout">
                                 <IconButton onClick={() => keycloak.logout()}>
-                                    <PowerSettingsNewIcon sx={{color: 'white'}} />
+                                    <PowerSettingsNewIcon className={styles.white} />
                                 </IconButton>
                             </Tooltip>
                         </Box>
                     ) : (
                         <Tooltip title="Login">
                             <IconButton onClick={() => keycloak.login()}>
-                                <PersonIcon sx={{color: 'white'}} />
+                                <PersonIcon className={styles.white} />
                             </IconButton>
                         </Tooltip>
                     )}

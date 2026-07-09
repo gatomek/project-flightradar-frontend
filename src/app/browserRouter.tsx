@@ -1,5 +1,5 @@
-import {MainContent} from '../views/MainContent';
-import {AircraftsView} from '../views/AircraftsView';
+import {MainContent} from '../views/MainContent/MainContent';
+import {AircraftsView} from '../views/AircraftsView/AircraftsView';
 import {SettingsView} from '../views/SettingsView';
 import {ProfileView} from '../views/ProfileView';
 import {createBrowserRouter, Navigate} from 'react-router-dom';
