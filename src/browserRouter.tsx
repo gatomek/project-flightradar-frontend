@@ -15,7 +15,7 @@ export const browserRouter = createBrowserRouter(
             children: [
                 {
                     path: '/',
-                    element: <Navigate to="/aircrafts" replace />
+                    element: <Navigate to="/radar" replace />
                 },
                 {
                     path: '/radar',
