@@ -53,7 +53,7 @@ export function DetailsView() {
                     {image ? (
                         <img className={styles.image} src={image} alt={`Aircraft with ICAO code ${icao}`} />
                     ) : (
-                        <div className={styles.noImage} role={'img'} aria-label={"No aircraft image available"}/>
+                        <div className={styles.noImage} role={'img'} aria-label={'No aircraft image available'} />
                     )}
                 </div>
                 <Box className={styles.detailsTable}>{icao && <DetailsTable />}</Box>
