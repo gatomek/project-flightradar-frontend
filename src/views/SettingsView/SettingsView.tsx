@@ -4,9 +4,10 @@ import Typography from '@mui/material/Typography';
 import {Button, Container, FormControl, InputLabel, MenuItem, Select} from '@mui/material';
 import {useForm, Controller} from 'react-hook-form';
 import Divider from '@mui/material/Divider';
-import {useAppDispatch, useAppSelector} from '../hooks/hooks.ts';
-import {setRange} from '../app/radar-slice.ts';
+import {useAppDispatch, useAppSelector} from '../../hooks/hooks.ts';
+import {setRange} from '../../app/radar-slice.ts';
 import {useQueryClient} from '@tanstack/react-query';
+import styles from './SettingsView.module.css';
 
 interface FormInputs {
     radar: string;
@@ -24,15 +25,7 @@ export function SettingsView() {
     };
 
     return (
-        <Box
-            sx={{
-                width: '100%',
-                height: '100%',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-            }}
-        >
+        <Box className={styles.root}>
             <Stack>
                 <form>
                     <FormControl fullWidth onSubmit={handleSubmit(onSubmit)}>
@@ -49,12 +42,12 @@ export function SettingsView() {
                             )}
                         />
                     </FormControl>
-                    <Container style={{textAlign: 'end'}}>
+                    <Container className={styles.textAlignEnd}>
                         <Button onClick={handleSubmit(onSubmit)}>Submit</Button>
                     </Container>
                 </form>
                 <Divider orientation="horizontal" />
-                <Box style={{margin: '20px'}}>
+                <Box className={styles.margin}>
                     <Typography>
                         <Typography component="span" fontWeight="bold">
                             Not Found behaviour:

@@ -1,6 +1,6 @@
 import {createTheme, type Theme} from '@mui/material/styles';
 
-const theme: Theme = createTheme({
+export const flightTableTheme: Theme = createTheme({
     components: {
         MuiChip: {
             styleOverrides: {
@@ -22,7 +22,3 @@ const theme: Theme = createTheme({
         }
     }
 });
-
-export function getFlightTableTheme() {
-    return theme;
-}

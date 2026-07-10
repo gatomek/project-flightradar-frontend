@@ -1,4 +1,3 @@
-import type {CustomTileLayer} from './CustomTileLayer.ts';
 import {stadiaMapsTileLayer} from './tileLayers.ts';
 import {useCallback, useMemo, useState} from 'react';
 import {useLiveAirplanesApi} from '../../hooks/useLiveAirplanesApi.ts';
@@ -13,49 +12,20 @@ import 'leaflet/dist/leaflet.css';
 import 'react-leaflet-cluster/dist/assets/MarkerCluster.css';
 import 'react-leaflet-cluster/dist/assets/MarkerCluster.Default.css';
 import 'leaflet-rotate';
-import {paramsToFlightIcon} from './icon/flightIconUtils.ts';
-import {paramsToGroundIcon} from './icon/groundIconUtils.ts';
-import {paramsToTowerIcon} from './icon/towerIconUtils.ts';
 import 'leaflet.markercluster';
+import {type CustomTileLayer, type MapClickHandlerProps} from './FlightMap.types.ts';
+import {degreeToRadians, getClassNameByMarkerCount, paramsToIcon} from './FlightMapTools.ts';
+import styles from './FlightMap.module.css';
 
 const DEFAULT_POSITION: LatLngTuple = [52.162, 20.96];
-
-const degreeToRadians = (degree: number): number => (degree * Math.PI) / 180;
 
 function TileLayerSetter(props: Readonly<CustomTileLayer>) {
     return <TileLayer url={props.url} attribution={props.attribution} detectRetina={false} />;
 }
 
-interface MapClickHandlerProps {
-    onMapClick: () => void;
-}
-
 const MapClickHandler = (props: Readonly<MapClickHandlerProps>) => {
     useMapEvent('click', props.onMapClick); // Attach a click event to the map
     return null;
-};
-
-const paramsToIcon = (colorMarker: undefined | string, marker: undefined | boolean, heading: undefined | number) => {
-    if (colorMarker === 'TWR') {
-        return paramsToTowerIcon(marker);
-    }
-    if (colorMarker === 'GND') {
-        return paramsToGroundIcon(marker, heading);
-    }
-
-    return paramsToFlightIcon(marker, heading);
-};
-
-const getClassNameByMarkerCount = (count: number): string => {
-    if (count > 100) {
-        return 'cluster-large';
-    }
-
-    if (count > 10) {
-        return 'cluster-medium';
-    }
-
-    return 'cluster-small';
 };
 
 const createClusterCustomIcon = (cluster: L.MarkerCluster) => {
@@ -115,7 +85,7 @@ export function FlightMap() {
 
     return (
         <MapContainer
-            style={{height: '100%', width: '100%'}}
+            className={styles.root}
             center={DEFAULT_POSITION}
             zoom={10}
             scrollWheelZoom={true}

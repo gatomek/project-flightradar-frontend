@@ -1,7 +1,7 @@
 import {useMemo} from 'react';
 import {type MRT_ColumnDef, MRT_Table, useMaterialReactTable} from 'material-react-table';
-import {useLiveAirplanesApi} from '../../hooks/useLiveAirplanesApi.ts';
-import {useAppSelector} from '../../hooks/hooks.ts';
+import {useLiveAirplanesApi} from '../../../hooks/useLiveAirplanesApi.ts';
+import {useAppSelector} from '../../../hooks/hooks.ts';
 
 export interface AircraftParam {
     param: string;

@@ -1,0 +1,28 @@
+.root {
+    top: 0;
+    bottom: auto;
+}
+
+.white {
+    color: white;
+}
+
+.logout {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.xsNavLink {
+    color: #2196f3;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.mdNavLink {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+}

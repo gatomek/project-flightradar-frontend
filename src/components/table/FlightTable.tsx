@@ -1,8 +1,7 @@
 import {useMemo} from 'react';
 import {MaterialReactTable, useMaterialReactTable} from 'material-react-table';
-import {getFlightTableColumns} from './getFlightTableColumns.ts';
 import type {Airplane} from './model/Airplane.ts';
-import {makeFlightData} from './getFlightData.ts';
+import {makeFlightData} from './makeFlightData.ts';
 import {useLiveAirplanesApi} from '../../hooks/useLiveAirplanesApi.ts';
 import Tooltip from '@mui/material/Tooltip';
 import RefreshIcon from '@mui/icons-material/Refresh';
@@ -10,10 +9,8 @@ import IconButton from '@mui/material/IconButton';
 import {useAppDispatch, useAppSelector} from '../../hooks/hooks.ts';
 import {setIcao} from '../../app/aircraft-slice.ts';
 import {ThemeProvider} from '@mui/material/styles';
-import {getFlightTableTheme} from './getFlightTableTheme.ts';
-
-const flightTableTheme = getFlightTableTheme();
-const flightTableColumns = getFlightTableColumns();
+import {flightTableTheme} from './flightTableTheme.ts';
+import {flightTableColumns} from './flightTableColumns.ts';
 
 export function FlightTable() {
     const location: string = useAppSelector((state) => state.radar.location);
