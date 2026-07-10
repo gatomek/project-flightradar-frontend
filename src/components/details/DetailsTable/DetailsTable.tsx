@@ -2,11 +2,7 @@ import {useMemo} from 'react';
 import {type MRT_ColumnDef, MRT_Table, useMaterialReactTable} from 'material-react-table';
 import {useLiveAirplanesApi} from '../../../hooks/useLiveAirplanesApi.ts';
 import {useAppSelector} from '../../../hooks/hooks.ts';
-
-export interface AircraftParam {
-    param: string;
-    value?: string | number;
-}
+import type {AircraftParam} from './DetailsTable.types.ts';
 
 export const DetailsTable = () => {
     const location: string = useAppSelector((state) => state.radar.location);
@@ -24,7 +20,7 @@ export const DetailsTable = () => {
                     align: 'right',
                     sx: {
                         textAlign: 'left',
-                        fontSize: '0.7rem'
+                        fontSize: '0.6rem'
                     }
                 }
             },
@@ -36,7 +32,7 @@ export const DetailsTable = () => {
                     align: 'right',
                     sx: {
                         textAlign: 'right',
-                        fontSize: '0.7rem'
+                        fontSize: '0.6rem'
                     }
                 }
             }

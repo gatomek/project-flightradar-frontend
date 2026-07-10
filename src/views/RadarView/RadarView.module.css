@@ -5,24 +5,24 @@
 }
 
 .left {
-    width: 50%;
+    width: var(--radar-left-panel-width);
     height: 100%;
 }
 
 .right {
-    width: 50%;
+    width: calc(100% - var(--radar-left-panel-width));
     height: 100%;
     overflow: hidden;
 }
 
-.flighttable {
-    height: var(--flight-table-height);
+.flightTable {
+    height: var(--radar-left-panel-config);
     width: 100%;
 }
 
 .detailsView {
     width: 100%;
-    height: calc(100% - var(--flight-table-height));
+    height: calc(100% - var(--radar-left-panel-config) - 40px);
     display: flex;
     justify-content: center;
     align-items: center;

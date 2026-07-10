@@ -1,10 +1,11 @@
-import {MainContent} from '../views/MainContent/MainContent';
-import {AircraftsView} from '../views/AircraftsView/AircraftsView';
-import {SettingsView} from '../views/SettingsView/SettingsView';
-import {ProfileView} from '../views/ProfileView/ProfileView';
 import {createBrowserRouter, Navigate} from 'react-router-dom';
-import {FileNotFoundView} from '../views/FileNotFoundView/FileNotFoundView';
-import {appConfig, PageNotFoundProcessing} from '../AppConfig.ts';
+import {MainContent} from './views/MainContent/MainContent';
+import {RadarView} from './views/RadarView/RadarView.tsx';
+import {SettingsView} from './views/SettingsView/SettingsView';
+import {ProfileView} from './views/ProfileView/ProfileView';
+import {FileNotFoundView} from './views/FileNotFoundView/FileNotFoundView';
+import {appConfig, PageNotFoundProcessing} from './AppConfig.ts';
+import {FlightsView} from './views/FlightsView/FlightsView.tsx';
 
 export const browserRouter = createBrowserRouter(
     [
@@ -17,12 +18,16 @@ export const browserRouter = createBrowserRouter(
                     element: <Navigate to="/aircrafts" replace />
                 },
                 {
-                    path: '/aircrafts',
-                    element: <AircraftsView />
+                    path: '/radar',
+                    element: <RadarView />
                 },
                 {
                     path: '/settings',
                     element: <SettingsView />
+                },
+                {
+                    path: '/flights',
+                    element: <FlightsView />
                 },
                 {
                     path: '/profile',
