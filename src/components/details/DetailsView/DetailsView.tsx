@@ -47,10 +47,16 @@ export function DetailsView() {
     }, [icao]);
 
     return (
-        <Stack className={styles.root} direction={'row'} gap={'1rem'}>
-            <Box className={styles.detailsTable}>{icao && <DetailsTable />}</Box>
-            <Stack className={styles.gallery}>
-                {image && <img className={styles.image} src={image} alt={`Aircraft with ICAO code ${icao}`} />}
+        <Stack className={styles.root} direction={'column'}>
+            <Stack>
+                <div className={styles.gallery}>
+                    {image ? (
+                        <img className={styles.image} src={image} alt={`Aircraft with ICAO code ${icao}`} />
+                    ) : (
+                        <div className={styles.noImage} />
+                    )}
+                </div>
+                <Box className={styles.detailsTable}>{icao && <DetailsTable />}</Box>
             </Stack>
         </Stack>
     );

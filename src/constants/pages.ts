@@ -4,7 +4,8 @@ export interface PageConfig {
 }
 
 export const PAGES: PageConfig[] = [
-    {label: 'Aircrafts', path: '/aircrafts'},
+    {label: 'Radar', path: '/radar'},
+    {label: 'Flights', path: '/flights'},
     {label: 'Settings', path: '/settings'},
     {label: 'Profile', path: '/profile'}
 ];
