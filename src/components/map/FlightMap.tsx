@@ -40,11 +40,14 @@ const createClusterCustomIcon = (cluster: L.MarkerCluster) => {
 export function FlightMap() {
     const [tileLayer] = useState<CustomTileLayer>(stadiaMapsTileLayer);
     const location: string = useAppSelector((state) => state.radar.location);
-    const {data} = useLiveAirplanesApi({location});
+    const {data, isError} = useLiveAirplanesApi({location});
     const icao: string = useAppSelector((state) => state.aircraft.icao);
     const dispatch = useAppDispatch();
 
-    const aircraftCollection: Feature<Point>[] = useMemo(() => makeAircraftCollection(data, icao), [data, icao]);
+    const aircraftCollection: Feature<Point>[] = useMemo(
+        () => isError ? [] : makeAircraftCollection(data, icao),
+        [data, icao, isError]
+    );
 
     const onMapClickHandler = useCallback(() => dispatch(resetIcao()), [dispatch]);
 
