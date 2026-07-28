@@ -45,7 +45,7 @@ export function FlightMap() {
     const dispatch = useAppDispatch();
 
     const aircraftCollection: Feature<Point>[] = useMemo(
-        () => isError ? [] : makeAircraftCollection(data, icao),
+        () => (isError ? [] : makeAircraftCollection(data, icao)),
         [data, icao, isError]
     );
 
