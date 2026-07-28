@@ -20,24 +20,25 @@ interface ApiProps {
 
 export function useLiveAirplanesApi(apiProps: ApiProps) {
     const {keycloak} = useKeycloak();
-    const isDirectRequest = apiProps.location === 'poland';
-    const url = isDirectRequest
-        ? 'https://api.airplanes.live/v2/point/51.5/19/250'
-        : 'https://113-30-190-16.cloud-xip.com:12000/logs';
-
+    const isCustomRequest = apiProps.location !== 'poland';
+    const url = isCustomRequest
+        ? 'https://113-30-190-16.cloud-xip.com:12000/logs'
+        : 'https://api.airplanes.live/v2/point/51.5/19/250';
     const {data, isLoading, isFetching, isError, refetch} = useQuery({
         queryKey: ['liveAirplanesLogs'],
         queryFn: async (): Promise<AircraftData> => {
             const res = await fetch(
                 url,
-                isDirectRequest
-                    ? {}
-                    : {
+                isCustomRequest
+                    ? {
                           method: 'GET',
-                          headers: {
-                              authorisation: 'Bearer ' + keycloak.token
-                          }
+                          headers: keycloak.token
+                              ? {
+                                    Authorization: `Bearer ${keycloak.token}`
+                                }
+                              : {}
                       }
+                    : {}
             );
             if (!res.ok) {
                 throw new Error(`Failed to fetch flight data: ${res.status} ${res.statusText}`);
