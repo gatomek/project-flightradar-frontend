@@ -20,8 +20,8 @@ interface ApiProps {
 
 export function useLiveAirplanesApi(apiProps: ApiProps) {
     const {keycloak} = useKeycloak();
-    const isDirectQuery = apiProps.location === 'poland';
-    const url = isDirectQuery
+    const isDirectRequest = apiProps.location === 'poland';
+    const url = isDirectRequest
         ? 'https://api.airplanes.live/v2/point/51.5/19/250'
         : 'https://113-30-190-16.cloud-xip.com:12000/logs';
 
@@ -30,7 +30,7 @@ export function useLiveAirplanesApi(apiProps: ApiProps) {
         queryFn: async (): Promise<AircraftData> => {
             const res = await fetch(
                 url,
-                isDirectQuery
+                isDirectRequest
                     ? {}
                     : {
                           method: 'GET',
